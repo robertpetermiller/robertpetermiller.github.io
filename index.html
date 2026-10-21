@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Robert Peter Miller — Plates</title>
+<meta name="description" content="Pen-and-ink plates: boats of Biscayne Bay and the Channel coast, and every class ever sailed at the Olympic Games.">
+<style>
+  :root{
+    --paper:#fbfaf7; --ink:#15130f; --rule:#d9d4c8; --muted:#6b655a; --accent:#2f3e5c;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){ --paper:#16150f; --ink:#ece7da; --rule:#35322a; --muted:#a39c8c; --accent:#9fb3d6; }
+  }
+  :root[data-theme="dark"]{ --paper:#16150f; --ink:#ece7da; --rule:#35322a; --muted:#a39c8c; --accent:#9fb3d6; }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.5 Georgia,"Iowan Old Style","Times New Roman",serif}
+  a{color:inherit}
+  .wrap{max-width:1240px;margin:0 auto;padding:0 16px}
+  header{padding:56px 0 28px;border-bottom:1px solid var(--rule)}
+  header h1{font-weight:400;font-size:clamp(28px,4vw,44px);letter-spacing:.02em;margin:0 0 6px}
+  header p{margin:0;color:var(--muted);max-width:60ch}
+  nav{display:flex;gap:22px;margin-top:22px;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+  nav a{text-decoration:none;color:var(--muted)} nav a:hover{color:var(--ink)}
+  section{padding:48px 0 12px}
+  section h2{font-weight:400;font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);margin:0 0 6px}
+  section .lede{margin:0 0 28px;max-width:70ch}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:34px 26px}
+  .grid[data-set="beach"]{grid-template-columns:minmax(0,520px)}
+  figure{margin:0;cursor:zoom-in}
+  figure img{display:block;width:100%;height:auto;background:#fff;border:1px solid var(--rule)}
+  figcaption{margin-top:10px;font-size:13px;line-height:1.4;letter-spacing:.06em}
+  figcaption .n{color:var(--muted);margin-right:.6em}
+  figcaption .t{text-transform:uppercase;letter-spacing:.1em}
+  figcaption .s{display:block;color:var(--muted);letter-spacing:.02em;margin-top:2px}
+  footer{border-top:1px solid var(--rule);margin-top:56px;padding:28px 0 64px;color:var(--muted);font-size:14px}
+  /* lightbox */
+  #lb{position:fixed;inset:0;background:rgba(10,9,6,.97);display:none;z-index:50;flex-direction:column}
+  #lb.on{display:flex}
+  #lb .stage{flex:1;display:flex;align-items:center;justify-content:center;padding:16px;min-height:0}
+  #lb img{max-width:100%;max-height:100%;background:#fff;box-shadow:0 20px 60px rgba(0,0,0,.6)}
+  #lb .cap{color:#e9e3d3;text-align:center;padding:0 60px 20px;font-size:14px;letter-spacing:.08em}
+  #lb .cap .t{text-transform:uppercase}
+  #lb button{position:absolute;top:50%;transform:translateY(-50%);background:none;border:0;color:#e9e3d3;font-size:44px;padding:20px;cursor:pointer;opacity:.7;font-family:inherit}
+  #lb button:hover{opacity:1}
+  #lb .prev{left:4px} #lb .next{right:4px}
+  #lb .x{top:10px;right:10px;transform:none;font-size:30px}
+  @media (max-width:600px){ .grid{gap:26px 16px;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))} #lb button{padding:8px;font-size:34px} #lb .cap{padding:0 44px 14px} }
+</style>
+</head>
+<body>
+<header class="wrap">
+  <h1>Robert Peter Miller</h1>
+  <p>Pen-and-ink plates. Boats on Biscayne Bay and the Channel coast, one plate for every class ever sailed at the Olympic Games, and a beginning in colour.</p>
+  <nav><a href="#boats">Boats</a><a href="#olympic">Olympic classes</a><a href="#beach">Colour</a><a href="#about">About</a></nav>
+</header>
+
+<main class="wrap">
+  <section id="boats">
+    <h2>Series I · Boats</h2>
+    <p class="lede">Egret, Presto, Romilly and Farfarer — four shoal-draught boats, drawn where they belong and a few places they don't: Key Biscayne, Dover, the French coast, the Bahamas.</p>
+    <div class="grid" data-set="boats"></div>
+  </section>
+
+  <section id="olympic">
+    <h2>Series II · The Olympic classes</h2>
+    <p class="lede">Every class sailed at the Games since 1900, in order of first appearance. Each plate is drawn from a single period reference; where no photograph survives, after the class drawing. Crews as photographed, faces turned away.</p>
+    <div class="grid" data-set="olympic"></div>
+  </section>
+
+  <section id="beach">
+    <h2>Series III · Colour</h2>
+    <p class="lede">A beach, drawn in ten coloured pencils — each pencil seeing only the part of the picture that belongs to it, the ten drawings laid one over another.</p>
+    <div class="grid" data-set="beach"></div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="lede">The plates are drawn in a house style of clean line and hatched tone, at 17 × 24 inches, for print on heavy matte paper. Robert Peter Miller lives and sails on Key Biscayne, Florida.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>© Robert Peter Miller. All rights reserved.</p>
+</footer>
+
+<div id="lb" role="dialog" aria-modal="true">
+  <button class="x" aria-label="Close">×</button>
+  <button class="prev" aria-label="Previous">‹</button>
+  <div class="stage"><img alt=""></div>
+  <div class="cap"></div>
+  <button class="next" aria-label="Next">›</button>
+</div>
+
+<script>
+const BOATS = [
+ ["b01","Egret off Dover"],
+ ["b02","Egret off Cape Florida"],
+ ["b03","Presto at Stiltsville"],
+ ["b04","Romilly at the Barnacle"],
+ ["b05","Presto in No Name Harbor"],
+ ["b06","Egret off Saint-Malo"],
+ ["b07","Presto off Étretat"],
+ ["b08","Egret on the Bahamas flats"],
+ ["b09","A cat-ketch off Nova Scotia"],
+ ["b10","A cat-ketch, from aloft"],
+ ["b11","Farfarer reaching"],
+ ["b12","Farfarer, from aloft"],
+];
+const OLY = [
+ ["o01","Carabinier, a one-tonner of 1900","1900"],
+ ["o02","Norma, 6 Metre, 1928","1908–1952"],
+ ["o03","The 7 Metre, after the class drawing of 1908","1908, 1920"],
+ ["o04","Cobweb, 8 Metre, 1908","1908–1936"],
+ ["o05","Itaka, 10 Metre","1912, 1920"],
+ ["o06","Erna Signe, 12 Metre, 1912","1908–1920"],
+ ["o07","The 12-foot dinghy","1920, 1928"],
+ ["o08","The 18-foot dinghy, after the plan of 1919","1920"],
+ ["o09","A 30 m² skerry cruiser at Jungfruskär","1920"],
+ ["o10","The 40 m² skerry cruiser","1920"],
+ ["o11","The 6.5 Metre, after the class drawing","1920"],
+ ["o12","The Monotype de Paris","1924"],
+ ["o13","The Snowbird, as preserved","1932"],
+ ["o14","The Star","1932–2012"],
+ ["o15","The O-Jolle","1936"],
+ ["o16","The Firefly","1948"],
+ ["o17","The Swallow","1948"],
+ ["o18","The Dragon","1948–1972"],
+ ["o19","The Finn","1952–2020"],
+ ["o20","The 5.5 Metre","1952–1968"],
+ ["o21","The 12 m² Sharpie","1956"],
+ ["o22","The Flying Dutchman","1960–1992"],
+ ["o23","The Tempest","1972, 1976"],
+ ["o24","The Soling","1972–2000"],
+ ["o25","The 470","1976–2024"],
+ ["o26","The Tornado","1976–2008"],
+ ["o27","The Windglider","1984"],
+ ["o28","The Europe","1992–2004"],
+ ["o29","The Laser","1996–2024"],
+ ["o30","The 49er","2000–2024"],
+ ["o31","The Yngling","2004, 2008"],
+ ["o32","The Laser Radial","2008–2024"],
+ ["o33","The RS:X","2008–2020"],
+ ["o34","The Elliott 6m","2012"],
+ ["o35","The 49er FX","2016–2024"],
+ ["o36","The Nacra 17","2016–2024"],
+ ["o37","The iQFOiL","2024"],
+ ["o38","The Formula Kite","2024"],
+];
+const ROMAN = n => { const m=[[1000,"M"],[900,"CM"],[500,"D"],[400,"CD"],[100,"C"],[90,"XC"],[50,"L"],[40,"XL"],[10,"X"],[9,"IX"],[5,"V"],[4,"IV"],[1,"I"]]; let s=""; for(const [v,r] of m){ while(n>=v){s+=r;n-=v;} } return s; };
+
+const items = [];
+function build(set, list, sub){
+  const grid = document.querySelector(`[data-set="${set}"]`);
+  list.forEach((row,i)=>{
+    const [file,title,games] = row;
+    const idx = items.length;
+    items.push({file,title,sub: games?`Games of ${games}`:""});
+    const fig = document.createElement("figure");
+    fig.innerHTML = `<img loading="lazy" src="web/thumb/${file}.jpg" alt="${title}">
+      <figcaption><span class="n">${ROMAN(i+1)}</span><span class="t">${title}</span>${games?`<span class="s">${games}</span>`:""}</figcaption>`;
+    fig.addEventListener("click",()=>open(idx));
+    grid.appendChild(fig);
+  });
+}
+build("boats",BOATS); build("olympic",OLY); build("beach",[["p01","A beach, in ten pencils"]]);
+
+// lightbox
+const lb=document.getElementById("lb"), lbimg=lb.querySelector("img"), cap=lb.querySelector(".cap");
+let cur=0;
+function show(i){ cur=(i+items.length)%items.length; const it=items[cur];
+  lbimg.src=`web/full/${it.file}.jpg`; lbimg.alt=it.title;
+  cap.innerHTML=`<span class="t">${it.title}</span>${it.sub?` · ${it.sub}`:""}`;
+  const n=items[(cur+1)%items.length]; new Image().src=`web/full/${n.file}.jpg`; }
+function open(i){ show(i); lb.classList.add("on"); document.body.style.overflow="hidden"; }
+function close(){ lb.classList.remove("on"); document.body.style.overflow=""; }
+lb.querySelector(".x").onclick=close; lb.querySelector(".prev").onclick=()=>show(cur-1); lb.querySelector(".next").onclick=()=>show(cur+1);
+lb.querySelector(".stage").addEventListener("click",e=>{ if(e.target!==lbimg) close(); });
+addEventListener("keydown",e=>{ if(!lb.classList.contains("on")) return; if(e.key==="Escape") close(); if(e.key==="ArrowRight") show(cur+1); if(e.key==="ArrowLeft") show(cur-1); });
+let tx=null; lb.addEventListener("touchstart",e=>tx=e.touches[0].clientX,{passive:true}); lb.addEventListener("touchend",e=>{ if(tx==null) return; const d=e.changedTouches[0].clientX-tx; if(Math.abs(d)>50) show(cur+(d<0?1:-1)); tx=null; });
+</script>
+</body>
+</html>
